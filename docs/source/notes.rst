@@ -3,13 +3,60 @@
 Notes
 #####
 
+My notes on chapter 1 of :
+
+Hairer E, Lubich C, Wanner G, Geometric Numerical Integration: Structure-Preserving Algorithms for ODEs.
+
+A system of differential equations can be written in the form:
+
 
 .. math::
 
-   \sqrt{a^{\frac{5}{4}} \sqrt{b} \sqrt{c}}
+   \dot{y} = f(y)
 
-   x^{2} \frac{d}{d x} f{\left (x \right )} = - 3 x f{\left (x \right )} + \frac{1}{x} \sin{\left (x \right )}
 
-   f{\left (x \right )} = \frac{1}{x^{3}} \left(C_{1} - \cos{\left (x \right )}\right)
+------------------
+Flow of the System
+------------------
 
+A mapping is defined by:
+
+.. math::
+
+    \phi_t(y_0) = y(t)  \text{ with } y(0) = y_0
+
+
+---------------------
+Explicit Euler Method
+---------------------
+
+This is the simplest of all numerical methods.
+
+.. math::
+
+   y_{n+1} = y_n + h f(y_n)
+
+This mapping can be represented by:
+
+
+.. math::
+
+   \Phi_h : y_n \mapsto y_{n+1} 
+
+
+
+
+.. code-block:: python
+
+   #plug python code in 
+
+---------------------
+Other Methods
+---------------------
+
+The implicit Euler Method:
+
+.. math::
+
+   y_{n+1} = y_n + h f(y_{n+1})
 
