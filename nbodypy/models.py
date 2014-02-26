@@ -5,6 +5,10 @@ models.py
 
 I'm trying to write the Particle/Particles containers in a way, so it 
 can be used in an amuse.datamodel.particles.Particles-like way.
+
+Todo: 
+    - move tests elsewhere
+    - implement units
 """
 
 import unittest
@@ -33,10 +37,6 @@ def main():
     #are interpreted as position, velocity, mass. 
     p5 = Particle([1, -1], [1,-2], 20) 
 
-    # len(Particle.position) == len(Particle.velocity) should evaluated true
-    # In other words, the following should fail/raise an Exception
-    # p6 = Particle([1, -1, 3], [1,-2], 20) 
-
     #Appending Particle objects to Particles object
     particles = Particles() #empty container 
     particles.append(p1)
@@ -46,7 +46,7 @@ def main():
     particles.append(p5)
 
     #Extending Particles object with Particle objects
-    particles = Particles() #empty container 
+    particles = Particles()  
     particles.extend([p1, p2, p3, p4, p5])
 
     #Broadcast positions/velocities/masses 
@@ -64,12 +64,13 @@ def main():
 class Particle(object):
     """ 
     yes:
-    maybe:
+    maybe:  
 
-    Valid keyword arguments:
-    mass
-    position
-    velocity
+    Valid keyword arguments
+    -----------------------
+    mass : float or int
+    position : iterable ( [x, y, z] )     
+    velocity : iterable ( [vx, vy, vz] )
     
     Attributes that should created when instance is initialised:
     x
@@ -178,7 +179,6 @@ class Particles(list):
     """ 
     Yes:  
     - raise warnings when particles at same positions are added.
-    - able to do Particles.extend([Particle(), Particle(), Particle()] 
     - printing strategies
     - method to check that particles are ready to be evolved. (i.e.
       positions/velocities/masses etc are well defined.)
@@ -503,48 +503,5 @@ class test_Particle_initialisation_empty(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
